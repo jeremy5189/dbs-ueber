@@ -14,17 +14,17 @@ function ($scope, $stateParams) {
 
   let contact = {
     'Jeremy Yen': {
-        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
+        'Picture' : 'img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png',
         'PassportName' : 'Jeremy Yen',
         'Email' : 'Jeremy@gmail.com',
-        'PaymentType' : 'Western',
+        'PaymentType' : 'Western Union',
         'AccountNumber' : '',
         'Country' : 'United State',
         'Note' : ''
     },
     'Isaac Chan': {
-        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
-        'PassportName' : 'Issac Chen',
+        'Picture' : 'img/APFI9BgCS2qiaWkK2EJV_2016-11-191.31.29.png',
+        'PassportName' : 'Isaac Chan',
         'Email' : 'Issac@gmail.com',
         'PaymentType' : 'DBS Bank Acc',
         'AccountNumber' : '60200054321',
@@ -52,11 +52,13 @@ function ($scope, $stateParams) {
       country: country,
       commission: comm,
     };
-
+    console.log("A : " + data.amount);
     localStorage.clear();
+    console.log("B : " + data.amount);
     localStorage.setItem('data', JSON.stringify(data));
     localStorage.setItem('contact', JSON.stringify(contact));
     localStorage.setItem('TWDRate', JSON.stringify(TWDRate));
+    console.log("C : " + data.amount);
     // console.log(JSON.parse(localStorage.getItem('data')).amount);
   };
 }])
@@ -71,6 +73,7 @@ function ($scope, $stateParams) {
   $scope.commission = data.commission;
   $scope.expire_day = localStorage.getItem('expire_day');
   let name = localStorage.getItem('key');
+  console.log(name);
   let contact = JSON.parse(localStorage.getItem('contact'));
   $scope.contact = contact[name];
 }])
@@ -116,18 +119,18 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+    $('#pay-dbs-account').hide();
+    $('#pay-btc').hide();
+    $('#rate').hide();
+    $('#payment-button5').hide();
 
-  $('#pay-dbs-account').hide();
-  $('#pay-btc').hide();
-  $('#rate').hide();
-  $('#payment-button5').hide();
-
-  let data = JSON.parse(localStorage.getItem('data'));
-  $scope.amount = data.amount;
-  let name = localStorage.getItem('key');
-  let contact = JSON.parse(localStorage.getItem('contact'));
-  $scope.contact = contact[name];
-
+    let data = JSON.parse(localStorage.getItem('data'));
+    $scope.amount = data.amount;
+    $scope.country = data.country;
+    let name = localStorage.getItem('key');
+    let contact = JSON.parse(localStorage.getItem('contact'));
+    $scope.contact = contact[name];
+    console.log("D : " + data.amount);
   $scope.change_type = function ($event) {
     console.log('change');
     $('#payment-button5').show();
@@ -178,25 +181,38 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-  let data = JSON.parse(localStorage.getItem('data'));
+  $scope.data = JSON.parse(localStorage.getItem('data'));
+
 }])
 .controller('paymentDetailCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  $scope.data = JSON.parse(localStorage.getItem('data'));
+  let name = localStorage.getItem('key');
+  let contact = JSON.parse(localStorage.getItem('contact'));
+  $scope.contact = contact[name];
+  $scope.expire_day = localStorage.getItem('expire_day');
 }])
 .controller('paymentDetail2Ctrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  $scope.data = JSON.parse(localStorage.getItem('data'));
+  let name = localStorage.getItem('key');
+  let contact = JSON.parse(localStorage.getItem('contact'));
+  $scope.contact = contact[name];
+  $scope.expire_day = localStorage.getItem('expire_day');
 }])
 .controller('inProgressCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  $scope.data = JSON.parse(localStorage.getItem('data'));
+  let name = localStorage.getItem('key');
+  let contact = JSON.parse(localStorage.getItem('contact'));
+  $scope.contact = contact[name];
+  $scope.expire_day = localStorage.getItem('expire_day');
 }])
 .controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function

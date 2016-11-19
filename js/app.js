@@ -8,6 +8,7 @@
 angular.module('app', [
   'ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services'
 ]).config(function ($ionicConfigProvider, $sceDelegateProvider) {
+  $ionicConfigProvider.views.maxCache(0);
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',
     '*://www.youtube.com/**',
