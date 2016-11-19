@@ -50,7 +50,7 @@ function ($scope, $stateParams) {
     let data = {
       amount: amount,
       country: country,
-      commission: comm
+      commission: comm,
     };
 
     localStorage.clear();
@@ -69,11 +69,10 @@ function ($scope, $stateParams) {
   $scope.amount = data.amount;
   $scope.currency = data.country;
   $scope.commission = data.commission;
+  $scope.expire_day = localStorage.getItem('expire_day');
   let name = localStorage.getItem('key');
   let contact = JSON.parse(localStorage.getItem('contact'));
   $scope.contact = contact[name];
-  console.log(name);
-  console.log(contact[name]);
 }])
 .controller('myContactCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -107,7 +106,11 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  $scope.next = function ($event) {
+    let expire_day = document.getElementById('expire_day').value;
+    
+    localStorage.setItem('expire_day', expire_day);
+  };
 }])
 .controller('paymentCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -175,7 +178,7 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-
+  let data = JSON.parse(localStorage.getItem('data'));
 }])
 .controller('paymentDetailCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
