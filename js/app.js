@@ -5,17 +5,16 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services'])
-
-.config(function($ionicConfigProvider, $sceDelegateProvider){
-
-
-  $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
-
-})
-
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+angular.module('app', [
+  'ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services'
+]).config(function ($ionicConfigProvider, $sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'self',
+    '*://www.youtube.com/**',
+    '*://player.vimeo.com/video/**'
+  ]);
+}).run(function ($ionicPlatform) {
+  $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -27,27 +26,24 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       StatusBar.styleDefault();
     }
   });
-})
-
-.directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
+}).directive('disableSideMenuDrag', [
+  '$ionicSideMenuDelegate',
+  '$rootScope', function ($ionicSideMenuDelegate, $rootScope) {
     return {
-        restrict: "A",
-        controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-
-            function stopDrag(){
+      restrict: 'A',
+      controller: [
+        '$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
+            function stopDrag () {
               $ionicSideMenuDelegate.canDragContent(false);
             }
-
-            function allowDrag(){
+            function allowDrag () {
               $ionicSideMenuDelegate.canDragContent(true);
             }
-
             $rootScope.$on('$ionicSlides.slideChangeEnd', allowDrag);
             $element.on('touchstart', stopDrag);
             $element.on('touchend', allowDrag);
             $element.on('mousedown', stopDrag);
             $element.on('mouseup', allowDrag);
-
         }]
     };
 }])

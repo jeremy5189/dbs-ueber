@@ -4,6 +4,18 @@ angular.module('app.routes', []).config(function ($stateProvider, $urlRouterProv
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
+
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html',
+    controller: 'signupCtrl'
+  })
+
   .state('dBSBer.newPayment', {
     url: '/new_payment',
     views: {
@@ -124,18 +136,7 @@ angular.module('app.routes', []).config(function ($stateProvider, $urlRouterProv
         controller: 'inProgressCtrl'
       }
     }
-  })
-
-  .state('login', {
-    url: '/page15',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
-  })
-
-  .state('signup', {
-    url: '/page16',
-    templateUrl: 'templates/signup.html',
-    controller: 'signupCtrl'
   });
-  $urlRouterProvider.otherwise('/page15');
+
+  $urlRouterProvider.otherwise('/login');
 });
