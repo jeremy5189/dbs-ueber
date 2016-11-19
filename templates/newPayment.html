@@ -6,7 +6,7 @@
     <form id="newPayment-form3" class="list">
       <label class="item item-input item-stacked-label" id="newPayment-input4">
         <span class="input-label">Pay</span>
-        <input type="number" id="pay-amount" placeholder="Amount of Payment" required="">
+        <input type="number" pattern="[0-9]*" id="pay-amount" placeholder="Amount of Payment" required="">
       </label>
       <label class="item item-select" id="newPayment-select2">
         <span class="input-label">To</span>
@@ -19,7 +19,7 @@
       </label>
       <label class="item item-input item-stacked-label" id="newPayment-input7">
         <span class="input-label">Willing to pay commission</span>
-        <input type="number" id="pay-commission" placeholder="Same currency with your payment" required="">
+        <input type="number" pattern="[0-9]*" id="pay-commission" placeholder="Same currency with your payment" required="">
       </label>
     </form>
     <a ui-sref="dBSBer.selectRecipient" ng-click="next($event)" id="newPayment-button1" class="button button-assertive button-block">Send Payment</a>
