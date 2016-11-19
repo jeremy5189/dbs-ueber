@@ -30,6 +30,8 @@ function ($scope, $stateParams) {
     }
   };
 
+  localStorage.setItem('contact', JSON.stringify(contact));
+
   $scope.next = function ($event) {
     let amount = document.getElementById('pay-amount').value,
         country = document.getElementById('pay-country').value,
@@ -42,7 +44,6 @@ function ($scope, $stateParams) {
     };
 
     localStorage.setItem('data', JSON.stringify(data));
-    localStorage.setItem('contact', JSON.stringify(contact));
     // console.log(JSON.parse(localStorage.getItem('data')).amount);
   };
 }])
@@ -62,7 +63,10 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-  let contacts = localStorage.getItem('contact');
+  $scope.next = function ($event) {
+    let name = angular.element($event.target).parent().attr('data-name');
+    console.log(name);
+  };
 }])
 .controller('dBSBerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
