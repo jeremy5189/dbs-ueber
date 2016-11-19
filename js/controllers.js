@@ -4,8 +4,6 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
-  localStorage.clear();
-
   let TWDRate = {
     'TWD': 1,
     'USD': 31.7246,
@@ -24,7 +22,7 @@ function ($scope, $stateParams) {
         'Country' : 'United State',
         'Note' : ''
     },
-    'Issac Chen': {
+    'Isaac Chan': {
         'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
         'PassportName' : 'Issac Chen',
         'Email' : 'Issac@gmail.com',
@@ -44,9 +42,6 @@ function ($scope, $stateParams) {
     }
   };
 
-  localStorage.setItem('contact', JSON.stringify(contact));
-  localStorage.setItem('TWDRate', JSON.stringify(TWDRate));
-
   $scope.next = function ($event) {
     let amount = document.getElementById('pay-amount').value,
         country = document.getElementById('pay-country').value,
@@ -58,7 +53,10 @@ function ($scope, $stateParams) {
       commission: comm
     };
 
+    localStorage.clear();
     localStorage.setItem('data', JSON.stringify(data));
+    localStorage.setItem('contact', JSON.stringify(contact));
+    localStorage.setItem('TWDRate', JSON.stringify(TWDRate));
     // console.log(JSON.parse(localStorage.getItem('data')).amount);
   };
 }])
@@ -74,7 +72,8 @@ function ($scope, $stateParams) {
   let name = localStorage.getItem('key');
   let contact = JSON.parse(localStorage.getItem('contact'));
   $scope.contact = contact[name];
-
+  console.log(name);
+  console.log(contact[name]);
 }])
 .controller('myContactCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -89,7 +88,6 @@ function ($scope, $stateParams) {
 
   $scope.next = function (key) {
     localStorage.setItem('key', key);
-
   };
 
 }])
@@ -119,6 +117,7 @@ function ($scope, $stateParams) {
   $('#pay-dbs-account').hide();
   $('#pay-btc').hide();
   $('#rate').hide();
+  $('#payment-button5').hide();
 
   let data = JSON.parse(localStorage.getItem('data'));
   $scope.amount = data.amount;
@@ -128,7 +127,8 @@ function ($scope, $stateParams) {
 
   $scope.change_type = function ($event) {
     console.log('change');
-    let val = $('#select').val(); 
+    $('#payment-button5').show();
+    let val = $('#select').val();
     if( val == '1' ) { // DBS account
 
       let data = JSON.parse(localStorage.getItem('data'));
