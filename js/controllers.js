@@ -13,29 +13,33 @@ function ($scope, $stateParams) {
     'SGD': 22.9304
   };
 
+
   let contact = {
     'Jeremy Yen': {
         'Picture' : 'img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png',
-        'Passport Name' : 'Jeremy Yen',
+        'PassportName' : 'Jeremy Yen',
         'Email' : 'Jeremy@gmail.com',
-        'Payment Type' : 'Western',
-        'Account Number' : '',
+        'PaymentType' : 'Western',
+        'AccountNumber' : '',
+        'Country' : 'United State',
         'Note' : ''
     },
     'Issac Chen': {
         'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
-        'Passport Name' : 'Issac Chen',
+        'PassportName' : 'Issac Chen',
         'Email' : 'Issac@gmail.com',
-        'Payment Type' : 'DBS Bank Acc',
-        'Account Number' : '60200054321',
+        'PaymentType' : 'DBS Bank Acc',
+        'AccountNumber' : '60200054321',
+        'Country' : 'Singapore',
         'Note' : ''
     },
     'Richard Lin': {
         'Picture' : 'img/O1nvMW1RaikI01gv6AcQ_2016-11-191.31.41.png',
-        'Passport Name' : 'Richard Lin',
+        'PassportName' : 'Richard Lin',
         'Email' : 'Richard@gmail.com',
-        'Payment Type' : 'DBS Bank Acc',
-        'Account Number' : '60200078078',
+        'PaymentType' : 'DBS Bank Acc',
+        'AccountNumber' : '60200078078',
+        'Country' : 'Taiwan',
         'Note' : ''
     }
   };
@@ -74,9 +78,12 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+
   $scope.next = function (key) {
     localStorage.setItem('key', key);
+
   };
+
 }])
 .controller('dBSBerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
