@@ -125,6 +125,13 @@ function ($scope, $stateParams) {
   let contact = JSON.parse(localStorage.getItem('contact'));
   $scope.contact = contact[name];
 
+  $scope.changeLoading = function () {
+    console.log('change loading');
+    $('#loading-icon').html('');
+    $('#loading-icon').addClass('ion-checkmark-circled');
+    $('#loading-text').html('Payment received!');
+  };
+
   $scope.change_type = function ($event) {
     console.log('change');
     $('#payment-button5').show();
@@ -163,7 +170,7 @@ function ($scope, $stateParams) {
       $('#rate-base').html('BTC');
       $('#btc-address').html(sha1(new Date().getTime()));
     }
-  }
+  };
 }])
 .controller('editContactCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
