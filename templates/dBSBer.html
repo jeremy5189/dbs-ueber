@@ -1,0 +1,27 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="side-menu21"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" id="side-menu21">
+    <ion-header-bar class="bar-stable">
+      <div class="title">DBS Über</div>
+    </ion-header-bar>
+    <ion-content padding="false" class="side-menu-left has-header ">
+      <ion-list id="dBSBer-list1">
+        <ion-item id="dBSBer-list-item1" ui-sref="dBSBer.newPayment" menu-close="">New Payment</ion-item>
+        <ion-item id="dBSBer-list-item2" ui-sref="dBSBer.myContact" menu-close="">My Contacts</ion-item>
+        <ion-item id="dBSBer-list-item3" ui-sref="dBSBer.history" menu-close="">Payment Hisotry</ion-item>
+        <ion-item id="dBSBer-list-item39" ui-sref="dBSBer.paymentInYourCountry" menu-close="">Payment In Your Country</ion-item>
+        <ion-item id="dBSBer-list-item40" ui-sref="dBSBer.inProgress" menu-close="">In process</ion-item>
+        <ion-item id="dBSBer-list-item5" ui-sref="dBSBer.settings" menu-close="">Settings</ion-item>
+        <ion-item id="dBSBer-list-item55" ui-sref="login" menu-close="">Log Out</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

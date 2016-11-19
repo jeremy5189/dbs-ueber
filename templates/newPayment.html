@@ -1,0 +1,27 @@
+<ion-view title="New Payment" hide-back-button="true" id="page1">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <form id="newPayment-form3" class="list">
+      <label class="item item-input item-stacked-label" id="newPayment-input4">
+        <span class="input-label">Pay</span>
+        <input type="number" placeholder="Amount of Payment">
+      </label>
+      <label class="item item-select" id="newPayment-select2">
+        <span class="input-label">To</span>
+        <select>
+          <option>Taiwan (TWD)</option>
+          <option>United States (USD)</option>
+          <option>Hong Kong (HKD)</option>
+          <option>Singapore (SGD)</option>
+        </select>
+      </label>
+      <label class="item item-input item-stacked-label" id="newPayment-input7">
+        <span class="input-label">Willing to pay commission</span>
+        <input type="number" placeholder="Same currency with your payment">
+      </label>
+    </form>
+    <a ui-sref="dBSBer.selectRecipient" id="newPayment-button1" class="button button-assertive  button-block">Send Payment</a>
+  </ion-content>
+</ion-view>
