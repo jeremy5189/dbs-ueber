@@ -18,7 +18,7 @@ function ($scope, $stateParams) {
         'PassportName' : 'Jeremy Yen',
         'Email' : 'Jeremy@gmail.com',
         'PaymentType' : 'Western Union',
-        'AccountNumber' : '',
+        'AccountNumber' : 'Jeremy Yen',
         'Country' : 'United State',
         'Note' : ''
     },
