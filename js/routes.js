@@ -92,10 +92,15 @@ angular.module('app.routes', []).config(function ($stateProvider, $urlRouterProv
     }
   })
 
-  .state('editContact', {
+  .state('dBSBer.editContact', {
     url: '/edit_contact',
-    templateUrl: 'templates/editContact.html',
-    controller: 'editContactCtrl'
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/editContact.html',
+        controller: 'editContactCtrl'
+      }
+    }
+
   })
 
   .state('dBSBer.paymentInYourCountry', {
