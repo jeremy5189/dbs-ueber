@@ -16,7 +16,7 @@ function ($scope, $stateParams) {
 
   let contact = {
     'Jeremy Yen': {
-        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29',
+        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
         'PassportName' : 'Jeremy Yen',
         'Email' : 'Jeremy@gmail.com',
         'PaymentType' : 'Western',
@@ -70,7 +70,7 @@ function ($scope, $stateParams) {
   $scope.name = localStorage.getItem('key');
   $scope.amount = data.amount;
   $scope.currency = data.country;
-
+  $scope.commission = data.commission;
   let name = localStorage.getItem('key');
   let contact = JSON.parse(localStorage.getItem('contact'));
   $scope.contact = contact[name];
