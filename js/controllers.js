@@ -4,34 +4,33 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
   let contact = {
-    "Jeremy Yen": {
-        "Picture" : "img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png",
-        "Passport Name" : "Jeremy Yen";
-        "Email" : "Jeremy@gmail.com";
-        "Payment Type" : "DBS Bank Acc";
-        "Account Number" : "60200012345";
-        "Note" : "";
+    'Jeremy Yen': {
+        'Picture' : 'img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png',
+        'Passport Name' : 'Jeremy Yen',
+        'Email' : 'Jeremy@gmail.com',
+        'Payment Type' : 'Western',
+        'Account Number' : '',
+        'Note' : ''
     },
-    "Issac Chen": {
-        "Picture" : "img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png",
-        "Passport Name" : "Issac Chen";
-        "Email" : "Issac@gmail.com";
-        "Payment Type" : "DBS Bank Acc";
-        "Account Number" : "60200054321";
-        "Note" : "";
+    'Issac Chen': {
+        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png',
+        'Passport Name' : 'Issac Chen',
+        'Email' : 'Issac@gmail.com',
+        'Payment Type' : 'DBS Bank Acc',
+        'Account Number' : '60200054321',
+        'Note' : ''
     },
-    "Richard Lin": {
-        "Picture" : "img/O1nvMW1RaikI01gv6AcQ_2016-11-191.31.41.png",
-        "Passport Name" : "Richard Lin";
-        "Email" : "Richard@gmail.com";
-        "Payment Type" : "DBS Bank Acc";
-        "Account Number" : "60200078078";
-        "Note" : "";
+    'Richard Lin': {
+        'Picture' : 'img/O1nvMW1RaikI01gv6AcQ_2016-11-191.31.41.png',
+        'Passport Name' : 'Richard Lin',
+        'Email' : 'Richard@gmail.com',
+        'Payment Type' : 'DBS Bank Acc',
+        'Account Number' : '60200078078',
+        'Note' : ''
     }
   };
 
   $scope.next = function ($event) {
-
     let amount = document.getElementById('pay-amount').value,
         country = document.getElementById('pay-country').value,
         comm = document.getElementById('pay-commission').value;
