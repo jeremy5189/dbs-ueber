@@ -16,7 +16,7 @@ function ($scope, $stateParams) {
 
   let contact = {
     'Jeremy Yen': {
-        'Picture' : 'img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png',
+        'Picture' : 'img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29',
         'PassportName' : 'Jeremy Yen',
         'Email' : 'Jeremy@gmail.com',
         'PaymentType' : 'Western',
@@ -66,6 +66,14 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+  let data = JSON.parse(localStorage.getItem('data'));
+  $scope.name = localStorage.getItem('key');
+  $scope.amount = data.amount;
+  $scope.currency = data.country;
+
+  let name = localStorage.getItem('key');
+  let contact = JSON.parse(localStorage.getItem('contact'));
+  $scope.contact = contact[name];
 
 }])
 .controller('myContactCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -112,10 +120,15 @@ function ($scope, $stateParams) {
   $('#pay-btc').hide();
   $('#rate').hide();
 
+  let data = JSON.parse(localStorage.getItem('data'));
+  $scope.amount = data.amount;
+  let name = localStorage.getItem('key');
+  let contact = JSON.parse(localStorage.getItem('contact'));
+  $scope.contact = contact[name];
+
   $scope.change_type = function ($event) {
     console.log('change');
-
-    let val = $('#select').val();
+    let val = $('#select').val(); 
     if( val == '1' ) { // DBS account
 
       let data = JSON.parse(localStorage.getItem('data'));

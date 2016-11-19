@@ -21,10 +21,10 @@
       <div id="pay-dbs-account">
         <ion-item class="item-divider" id="payment-list-item-divider13"> Pay with DBS Account</ion-item>
         <ion-item id="payment-list-item51">Debit from
-          <span class="item-note">60200012345</span>
+          <span class="item-note">{{contact.AccountNumber}}</span>
         </ion-item>
         <ion-item id="payment-list-item53">Amount Due
-          <span class="item-note">100 USD</span>
+          <span class="item-note">{{amount}}</span>
         </ion-item>
         <label class="item item-input item-stacked-label" id="payment-input18">
           <span class="input-label">SMS OTP (Resend)</span>
@@ -36,6 +36,9 @@
         <ion-item class="item-divider" id="payment-list-item-divider6"> Pay BTC to Smart Contract</ion-item>
         <ion-item class="item-icon-left" id="payment-list-item30">
           <i class="icon ion-social-bitcoin-outline"></i><span id="btc-address"></span></ion-item>
+        </ion-item>
+        <ion-item id="payment-list-item53">Amount Due
+          <span class="item-note">{{amount}}</span>
         </ion-item>
         <ion-item class="item-icon-left" id="payment-list-item34">
           <i class="icon ion-alert"></i>Wating for payment...</ion-item>
