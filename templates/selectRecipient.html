@@ -1,24 +1,12 @@
 <ion-view title="Select Recipient" id="page7">
   <ion-content padding="true" class="has-header">
     <div class="list card" id="selectRecipient-card22">
-      <ion-item class="item-avatar item-icon-right" ng-click="next($event)" data-name="Isaac Chan" id="selectRecipient-list-item15" ui-sref="dBSBer.smartContract">
-        <img src="img/TInAxhrQh6Tt7BYTIquQ_2016-11-191.31.29.png">
-        <h2>Isaac Chan</h2>
-        <p>Singapore</p>
-        <i class="icon ion-ios-arrow-right"></i>
-      </ion-item>
-      <ion-item class="item-avatar item-icon-right" ng-click="next($event)" data-name="Jeremy Yen" id="selectRecipient-list-item16" ui-sref="dBSBer.smartContract">
-        <img src="img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png">
-        <h2>Jeremy Yen</h2>
-        <p>United States</p>
-        <i class="icon ion-ios-arrow-right"></i>
-      </ion-item>
-      <ion-item class="item-avatar item-icon-right" ng-click="next($event)" data-name="Richard Lin" id="selectRecipient-list-item17" ui-sref="dBSBer.smartContract">
-        <img src="img/O1nvMW1RaikI01gv6AcQ_2016-11-191.31.41.png">
-        <h2>Richard Lin</h2>
-        <p>Taiwan</p>
-        <i class="icon ion-ios-arrow-right"></i>
-      </ion-item>
+        <ion-item class="item-avatar item-icon-right" ng-click="next($event)" data-name="Richard Lin" id="selectRecipient-list-item17" ui-sref="dBSBer.smartContract" ng-repeat="contact in contacts">
+          <img src={{contact.Picture}}>
+          <h2>{{contact.PassportName}}</h2>
+          <p>{{contact.Country}}</p>
+          <i class="icon ion-ios-arrow-right"></i>
+        </ion-item>
     </div>
   </ion-content>
 </ion-view>
