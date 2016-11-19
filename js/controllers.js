@@ -3,6 +3,16 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+
+  localStorage.clear();
+
+  let TWDRate = {
+    'TWD': 1,
+    'USD': 31.7246,
+    'HKD': 4.0893,
+    'SGD': 22.9304
+  };
+
   let contact = {
     'Jeremy Yen': {
         'Picture' : 'img/mic73kYRGmZ8uiiAFrfw_2016-11-191.31.16.png',
@@ -31,6 +41,7 @@ function ($scope, $stateParams) {
   };
 
   localStorage.setItem('contact', JSON.stringify(contact));
+  localStorage.setItem('TWDRate', JSON.stringify(TWDRate));
 
   $scope.next = function ($event) {
     let amount = document.getElementById('pay-amount').value,
@@ -63,9 +74,8 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-  $scope.next = function ($event) {
-    let name = angular.element($event.target).parent().attr('data-name');
-    console.log(name);
+  $scope.next = function (key) {
+    localStorage.setItem('key', key);
   };
 }])
 .controller('dBSBerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -91,6 +101,49 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+  $('#pay-dbs-account').hide();
+  $('#pay-btc').hide();
+  $('#rate').hide();
+
+  $scope.change_type = function ($event) {
+    console.log('change');
+
+    let val = $('#select').val();
+    if( val == '1' ) { // DBS account
+
+      let data = JSON.parse(localStorage.getItem('data'));
+      let TWDRate = JSON.parse(localStorage.getItem('TWDRate'));
+      let convert = Math.floor(TWDRate[data.country] * data.amount);
+      console.log(convert);
+
+      $('#pay-dbs-account').show();
+      $('#pay-btc').hide();
+      $('#rate').show();
+
+      $('#rate-amount').html(data.amount);
+      $('#rate-curreny').html(data.country);
+      $('#rate-exchange').html(convert);
+      $('#rate-base').html('TWD');
+
+    } else if( val == '2' ) {
+
+      let BTCRate = 24061;
+      let data = JSON.parse(localStorage.getItem('data'));
+      let TWDRate = JSON.parse(localStorage.getItem('TWDRate'));
+      let convert = Math.round(TWDRate[data.country] * data.amount / BTCRate * 100000000) / 100000000;
+      console.log(convert);
+
+      $('#pay-btc').show();
+      $('#pay-dbs-account').hide();
+      $('#rate').show();
+
+      $('#rate-amount').html(data.amount);
+      $('#rate-curreny').html(data.country);
+      $('#rate-exchange').html(convert);
+      $('#rate-base').html('BTC');
+      $('#btc-address').html(sha1(new Date().getTime()));
+    }
+  }
 }])
 .controller('editContactCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
